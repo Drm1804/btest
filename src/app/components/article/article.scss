@@ -1,7 +1,29 @@
-.b-art-com-box{
-  display: inline-block;
+.b-art-comments-list,
+.b-art-reply-comments{
+  margin: 0;
+  padding: 0;
+  clear: both;
+}
+.b-art-comment-item{
+  list-style: none;
+}
+.b-art-com-avatar{
 
+  float: left;
+  width: 140px;
+}
+
+
+.b-art-com-box{
   background: red;
-  width: auto;
+  margin-left: 140px;
   height: 100px;
+}
+
+.b-art-comments-list .b-art-reply-comments{
+  margin-left: 100px;;
+}
+
+.b-art-comments-list .b-art-reply-comments .b-art-reply-comments .b-art-reply-comments{
+  margin-left: 0;;
 }
