@@ -8,11 +8,9 @@
   list-style: none;
 }
 .b-art-com-avatar{
-
   float: left;
   width: 140px;
 }
-
 
 .b-art-com-box{
   background: red;
@@ -27,3 +25,18 @@
 .b-art-comments-list .b-art-reply-comments .b-art-reply-comments .b-art-reply-comments{
   margin-left: 0;;
 }
+
+// Добавление комментариев
+.b-article-comment-add{
+  margin-top: 30px;
+  border: 1px solid #888;
+  vertical-align: top;
+}
+
+
+.b-art-add-label{
+  min-width: 140px;
+  display: inline-block;
+}
+
+
