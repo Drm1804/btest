@@ -1,14 +1,17 @@
+// Контроллер является связующим элементом между сервисом и view
+
+
 (function () {
     'use strict';
 
   angular.module('btest')
     .controller('ArticleController', ArticleController);
 
-  ArticleController.$inject = ['$scope', '$article', '$sce'];
+  ArticleController.$inject = ['$scope', '$article', '$sce', '$rootScope', 'commentFactory', 'articleService'];
 
-  function ArticleController($scope, $article, $sce){
+  function ArticleController($scope, $article, $sce, $rootScope, commentFactory, articleService){
     var vm = this;
-    vm.comments = [];
+    vm.data = [];
     vm.sce = $sce;
 
     vm.getComments = getComments;
@@ -16,15 +19,22 @@
     vm.run = run;
     vm.run();
 
+
+
+
+
+
     function getComments(){
-      $article.getComments()
-        .then(function(resp){
-          vm.comments = resp;
-        })
+      vm.data = articleService.comments;
     }
 
     function run(){
       vm.getComments();
+
+      // Подписываемся на событие перезагрузки данных
+      $rootScope.$on('comment:reload', function(){
+        vm.getComments()
+      });
     }
   }
 

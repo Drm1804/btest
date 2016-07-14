@@ -7,7 +7,9 @@
 
   function commentFactory() {
     return {
+
       idToArray: function (data) {
+        return data.split('.')
 
       },
       idToString: function (data) {

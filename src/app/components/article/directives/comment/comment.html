@@ -9,9 +9,9 @@
           <span class="b-art-com-box-info__name">{{comment.commentData.name}}</span>
           <span class="b-art-com-box-info__time">{{comment.commentData.time}}</span>
               <span class="b-art-com-box-info__rating">
-                <button>+</button>
+                <button ng-click="comment.changeRating('plus')">+</button>
                 <button>{{comment.commentData.rating}}</button>
-                <button>-</button>
+                <button ng-click="comment.changeRating('minus')">-</button>
               </span>
           <a class="b-art-com-box-info__reply" href="" ng-if="!comment.showForm" ng-click="comment.toggleForm()">Ответить</a>
           <a class="b-art-com-box-info__reply" href="" ng-if="comment.showForm" ng-click="comment.toggleForm()">Скрыть</a>

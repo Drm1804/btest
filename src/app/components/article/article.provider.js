@@ -12,11 +12,21 @@
 
 
     return {
-      $get: function ($q, $server) {
+      $get: function ($q, $server, $timeout) {
         return {
           getComments: function () {
             var dfd = $q.defer();
             $server.returnData()
+              .then(function (resp) {
+                dfd.resolve(resp)
+              }, function (resp) {
+                dfd.resolve(resp);
+              });
+            return dfd.promise;
+          },
+          setComments: function (){
+            var dfd = $q.defer();
+            $server.setData()
               .then(function (resp) {
                 dfd.resolve(resp)
               }, function (resp) {

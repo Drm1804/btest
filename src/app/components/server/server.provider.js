@@ -14,7 +14,7 @@
     };
 
     return{
-      $get: function($constantApp, $q, $http){
+      $get: function($constantApp, $q, $http, $timeout){
         return{
           returnData: function(){
             var dfd = $q.defer();
@@ -31,6 +31,13 @@
           },
           returnNewId: function(){
             return Math.random().toString(36).slice(2, 2 + Math.max(1, Math.min(n, 10)));
+          },
+          setData: function(){
+            var dfd = $q.defer();
+            $timeout(function(){
+              dfd.resolve()
+            });
+            return dfd.promise;
           }
         }
       }

@@ -1,80 +1,58 @@
-[
-  {
-    "id": "uvaz",
-    "name": "Ololo",
-    "time": "",
-    "rating": "5",
-    "avatar": "http://placehold.it/140x100",
-    "text": "<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab ad dolor et hic id illo itaque, nam odio optio pariatur porro quas qui quis quo repellendus similique, totam! Ad culpa error, est ex fugiat impedit laudantium modi molestiae, nihil non odit optio, pariatur quidem vero voluptas! Aliquam beatae cumque eligendi molestiae odit quaerat quis rerum temporibus? A, accusantium aspernatur assumenda blanditiis corporis debitis distinctio doloremque dolores dolorum ea eius eligendi et excepturi facere fugiat id illum incidunt ipsum minima molestiae molestias nisi nobis nostrum officiis porro possimus quaerat quas qui quod quos rem repudiandae similique sit totam vel voluptatibus voluptatum.</p>",
-    "comments": [
-      {
-        "id": "uvaz.4gtz",
-        "name": "Trololo",
-        "time": "",
-        "rating": "5",
-        "avatar": "http://placehold.it/140x100",
-        "text": "Вложенный комментарий"
-      },
-      {
-        "id": "uvaz.4vok",
-        "name": "Ololo",
-        "time": "",
-        "rating": "5",
-        "avatar": "http://placehold.it/140x100",
-        "text": "Вложенный комментарий",
-        "comments": [
-          {
-            "id": "uvaz.4vok.sho0",
-            "name": "Trololo",
-            "time": "",
-            "rating": "5",
-            "avatar": "http://placehold.it/140x100",
-            "text": "Третий уровень вложенности",
-            "comments": [
-              {
-                "id": "uvaz.4vok.sho0.0m5x",
-                "name": "Trololo",
-                "time": "",
-                "rating": "5",
-                "avatar": "http://placehold.it/140x100",
-                "text": "Четвертый уровень вложенности"
-              },
-              {
-                "id": "uvaz.4vok.sho0.55bw",
-                "name": "Ololo",
-                "time": "",
-                "rating": "5",
-                "avatar": "http://placehold.it/140x100",
-                "text": "Четвертый уровень вложенности"
-              }
-            ]
-          },
-          {
-            "id": "uvaz.4vok.9sqc",
-            "name": "Ololo",
-            "time": "",
-            "rating": "5",
-            "avatar": "http://placehold.it/140x100",
-            "text": "Третий уровень вложенности"
+{
+  "comments": {
+    "uvaz": {
+      "id": "uvaz",
+      "name": "Ololo",
+      "time": "",
+      "rating": "5",
+      "avatar": "http://placehold.it/140x100",
+      "text": "<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab ad dolor et hic id illo itaque, nam odio optio pariatur porro quas qui quis quo repellendus similique, totam! Ad culpa error, est ex fugiat impedit laudantium modi molestiae, nihil non odit optio, pariatur quidem vero voluptas! Aliquam beatae cumque eligendi molestiae odit quaerat quis rerum temporibus? A, accusantium aspernatur assumenda blanditiis corporis debitis distinctio doloremque dolores dolorum ea eius eligendi et excepturi facere fugiat id illum incidunt ipsum minima molestiae molestias nisi nobis nostrum officiis porro possimus quaerat quas qui quod quos rem repudiandae similique sit totam vel voluptatibus voluptatum.</p>",
+      "comments": {
+        "4gtz": {
+          "id": "uvaz.4gtz",
+          "name": "Trololo",
+          "time": "",
+          "rating": "5",
+          "avatar": "http://placehold.it/140x100",
+          "text": "Вложенный комментарий"
+        },
+        "4vok": {
+          "id": "uvaz.4vok",
+          "name": "Ololo",
+          "time": "",
+          "rating": "5",
+          "avatar": "http://placehold.it/140x100",
+          "text": "Вложенный комментарий",
+          "comments": {
+            "sho0": {
+              "id": "uvaz.4vok.sho0",
+              "name": "Trololo",
+              "time": "",
+              "rating": "5",
+              "avatar": "http://placehold.it/140x100",
+              "text": "Третий уровень вложенности"
+            }
           }
-        ]
+        },
+        "fwbe": {
+          "id": "uvaz.fwbe",
+          "name": "Alolo",
+          "time": "",
+          "rating": "5",
+          "avatar": "http://placehold.it/140x100",
+          "text": "<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab ad dolor et hic id illo itaque, nam odio optio pariatur porro quas qui quis quo repellendus similique, totam! Ad culpa error, est ex fugiat impedit laudantium modi molestiae, nihil non odit optio, pariatur quidem vero voluptas! Aliquam beatae cumque eligendi molestiae odit quaerat quis rerum temporibus? A, accusantium aspernatur assumenda blanditiis corporis debitis distinctio doloremque dolores dolorum ea eius eligendi et excepturi facere fugiat id illum incidunt ipsum minima molestiae molestias nisi nobis nostrum officiis porro possimus quaerat quas qui quod quos rem repudiandae similique sit totam vel voluptatibus voluptatum.</p>"
+        },
+        "rhn8": {
+          "id": "uvaz.rhn8",
+          "name": "Bololo",
+          "time": "",
+          "rating": "5",
+          "avatar": "http://placehold.it/140x100",
+          "text": "<h3>Some title</h3><p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab ad dolor et hic id illo itaque, nam odio optio pariatur porro quas qui quis quo repellendus similique, totam! Ad culpa error, est ex fugiat impedit laudantium modi molestiae, nihil non odit optio, pariatur quidem vero voluptas! Aliquam beatae cumque eligendi molestiae odit quaerat quis rerum temporibus? A, accusantium aspernatur assumenda blanditiis corporis debitis distinctio doloremque dolores dolorum ea eius eligendi et excepturi facere fugiat id illum incidunt ipsum minima molestiae molestias nisi nobis nostrum officiis porro possimus quaerat quas qui quod quos rem repudiandae similique sit totam vel voluptatibus voluptatum.</p>"
+        }
       }
-    ]
-  },
-  {
-    "id": "fwbe",
-    "name": "Alolo",
-    "time": "",
-    "rating": "5",
-    "avatar": "http://placehold.it/140x100",
-    "text": "<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab ad dolor et hic id illo itaque, nam odio optio pariatur porro quas qui quis quo repellendus similique, totam! Ad culpa error, est ex fugiat impedit laudantium modi molestiae, nihil non odit optio, pariatur quidem vero voluptas! Aliquam beatae cumque eligendi molestiae odit quaerat quis rerum temporibus? A, accusantium aspernatur assumenda blanditiis corporis debitis distinctio doloremque dolores dolorum ea eius eligendi et excepturi facere fugiat id illum incidunt ipsum minima molestiae molestias nisi nobis nostrum officiis porro possimus quaerat quas qui quod quos rem repudiandae similique sit totam vel voluptatibus voluptatum.</p>"
-  },
-  {
-    "id": "rhn8",
-    "name": "Bololo",
-    "time": "",
-    "rating": "5",
-    "avatar": "http://placehold.it/140x100",
-    "text": "<h3>Some title</h3><p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab ad dolor et hic id illo itaque, nam odio optio pariatur porro quas qui quis quo repellendus similique, totam! Ad culpa error, est ex fugiat impedit laudantium modi molestiae, nihil non odit optio, pariatur quidem vero voluptas! Aliquam beatae cumque eligendi molestiae odit quaerat quis rerum temporibus? A, accusantium aspernatur assumenda blanditiis corporis debitis distinctio doloremque dolores dolorum ea eius eligendi et excepturi facere fugiat id illum incidunt ipsum minima molestiae molestias nisi nobis nostrum officiis porro possimus quaerat quas qui quod quos rem repudiandae similique sit totam vel voluptatibus voluptatum.</p>"
+    }
   }
-]
+}
+
+
