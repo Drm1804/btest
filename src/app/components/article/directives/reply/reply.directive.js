@@ -8,7 +8,7 @@
 
     function link(scope, element, attrs){
       scope.$watch(function() {
-        console.log(scope.comments);
+        // console.log(scope.comments);
       });
       // console.log(element);
       // console.log(attrs);
@@ -21,7 +21,7 @@
       scope: {
         comments: '='
       },
-      templateUrl: 'app/components/article/directives/reply.html',
+      templateUrl: 'app/components/article/directives/reply/reply.html',
       link: link
     };
 

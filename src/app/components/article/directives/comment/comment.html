@@ -1,0 +1,38 @@
+<li class="b-art-comment-item" ng-repeat="item in comments track by $index">
+  <span class="t-parent_id"></span>
+  <div class="b-art-comment-body" ng-controller="CommentController as comment">
+    <div class="b-art-com-avatar">
+      <img ng-src="{{item.avatar}}" alt="">
+    </div>
+    <div class="b-art-com-box">
+      <div class="b-art-com-box__info">
+        <div class="b-art-com-box-info">
+          <span class="b-art-com-box-info__name">{{item.name}}</span>
+          <span class="b-art-com-box-info__time">{{item.time}}</span>
+              <span class="b-art-com-box-info__rating">
+                <button>+</button>
+                <button>{{item.rating}}</button>
+                <button>-</button>
+              </span>
+          <a class="b-art-com-box-info__reply" href="" ng-if="!comment.showForm" ng-click="comment.showForm = !comment.showForm">Ответить</a>
+          <a class="b-art-com-box-info__reply" href="" ng-if="comment.showForm" ng-click="comment.showForm = !comment.showForm">Скрыть</a>
+        </div>
+      </div>
+      <div class="b-art-com-box__text">{{item.text}}</div>
+    </div>
+    <form class="b-article-comment-add" ng-if="comment.showForm">
+      <h4>Добавить комментарий</h4>
+      <label class="b-art-add-label" for="b-art-add-name">Имя:</label>
+      <input id="b-art-add-name" class="b-art-add-name" type="text" required>
+      <br>
+      <label class="b-art-add-label" for="b-art-add-email">E-mail:</label>
+      <input id="b-art-add-email" class="b-art-add-email" type="email" required>
+      <br>
+      <label class="b-art-add-label" for="b-art-add-textarea">Текст комментария:</label>
+      <textarea id="b-art-add-textarea" class="b-art-add-textarea" cols="30" rows="10" required></textarea>
+      <br>
+      <input type="submit">
+    </form>
+  </div>
+  <reply class="b-art-replay" ng-if="item.comments" comments="item.comments"></reply>
+</li>

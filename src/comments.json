@@ -1,6 +1,6 @@
 [
   {
-    "id": "",
+    "id": "uvaz",
     "name": "Ololo",
     "time": "",
     "rating": "5",
@@ -8,7 +8,7 @@
     "text": "<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab ad dolor et hic id illo itaque, nam odio optio pariatur porro quas qui quis quo repellendus similique, totam! Ad culpa error, est ex fugiat impedit laudantium modi molestiae, nihil non odit optio, pariatur quidem vero voluptas! Aliquam beatae cumque eligendi molestiae odit quaerat quis rerum temporibus? A, accusantium aspernatur assumenda blanditiis corporis debitis distinctio doloremque dolores dolorum ea eius eligendi et excepturi facere fugiat id illum incidunt ipsum minima molestiae molestias nisi nobis nostrum officiis porro possimus quaerat quas qui quod quos rem repudiandae similique sit totam vel voluptatibus voluptatum.</p>",
     "comments": [
       {
-        "id": "",
+        "id": "uvaz.4gtz",
         "name": "Trololo",
         "time": "",
         "rating": "5",
@@ -16,7 +16,7 @@
         "text": "Вложенный комментарий"
       },
       {
-        "id": "",
+        "id": "uvaz.4vok",
         "name": "Ololo",
         "time": "",
         "rating": "5",
@@ -24,7 +24,7 @@
         "text": "Вложенный комментарий",
         "comments": [
           {
-            "id": "",
+            "id": "uvaz.4vok.sho0",
             "name": "Trololo",
             "time": "",
             "rating": "5",
@@ -32,7 +32,7 @@
             "text": "Третий уровень вложенности",
             "comments": [
               {
-                "id": "",
+                "id": "uvaz.4vok.sho0.0m5x",
                 "name": "Trololo",
                 "time": "",
                 "rating": "5",
@@ -40,35 +40,17 @@
                 "text": "Четвертый уровень вложенности"
               },
               {
-                "id": "",
+                "id": "uvaz.4vok.sho0.55bw",
                 "name": "Ololo",
                 "time": "",
                 "rating": "5",
                 "avatar": "http://placehold.it/140x100",
-                "text": "Четвертый уровень вложенности",
-                "comments": [
-                  {
-                    "id": "",
-                    "name": "Trololo",
-                    "time": "",
-                    "rating": "5",
-                    "avatar": "http://placehold.it/140x100",
-                    "text": "Пятый уровень вложенности"
-                  },
-                  {
-                    "id": "",
-                    "name": "Ololo",
-                    "time": "",
-                    "rating": "5",
-                    "avatar": "http://placehold.it/140x100",
-                    "text": "Пятый уровень вложенности"
-                  }
-                ]
+                "text": "Четвертый уровень вложенности"
               }
             ]
           },
           {
-            "id": "",
+            "id": "uvaz.4vok.9sqc",
             "name": "Ololo",
             "time": "",
             "rating": "5",
@@ -80,7 +62,7 @@
     ]
   },
   {
-    "id": "",
+    "id": "fwbe",
     "name": "Alolo",
     "time": "",
     "rating": "5",
@@ -88,7 +70,7 @@
     "text": "<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab ad dolor et hic id illo itaque, nam odio optio pariatur porro quas qui quis quo repellendus similique, totam! Ad culpa error, est ex fugiat impedit laudantium modi molestiae, nihil non odit optio, pariatur quidem vero voluptas! Aliquam beatae cumque eligendi molestiae odit quaerat quis rerum temporibus? A, accusantium aspernatur assumenda blanditiis corporis debitis distinctio doloremque dolores dolorum ea eius eligendi et excepturi facere fugiat id illum incidunt ipsum minima molestiae molestias nisi nobis nostrum officiis porro possimus quaerat quas qui quod quos rem repudiandae similique sit totam vel voluptatibus voluptatum.</p>"
   },
   {
-    "id": "",
+    "id": "rhn8",
     "name": "Bololo",
     "time": "",
     "rating": "5",

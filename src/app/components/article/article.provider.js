@@ -1,29 +1,27 @@
+// В идеале этот провайдер должен ходить на сервер
+// но сейчас он будет обращаться к провайдеру $server
+// который имитирует работу сервера
+
 (function () {
-    'use strict';
+  'use strict';
 
   angular.module('btest')
     .provider('$article', $article);
 
-  function $article(){
+  function $article() {
 
-    var url = {
-      comments: '/comments.json'
-    };
 
-    return{
-      $get: function($q, $http, $constantApp){
-        return{
-          getComments: function(){
+    return {
+      $get: function ($q, $server) {
+        return {
+          getComments: function () {
             var dfd = $q.defer();
-
-            $http.get($constantApp.serverUrl + '/' + url.comments)
-              .then(function(resp){
-                dfd.resolve(resp.data);
-              }, function(resp){
-                console.error('Ошибка получения коментариев');
-                dfd.reject(resp);
+            $server.returnData()
+              .then(function (resp) {
+                dfd.resolve(resp)
+              }, function (resp) {
+                dfd.resolve(resp);
               });
-
             return dfd.promise;
           }
         }
