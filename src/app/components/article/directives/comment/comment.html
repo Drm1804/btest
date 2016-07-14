@@ -1,24 +1,23 @@
 <li class="b-art-comment-item" ng-repeat="item in comments track by $index">
-  <span class="t-parent_id"></span>
   <div class="b-art-comment-body" ng-controller="CommentController as comment">
     <div class="b-art-com-avatar">
-      <img ng-src="{{item.avatar}}" alt="">
+      <img ng-src="{{comment.commentData.avatar}}" alt="">
     </div>
     <div class="b-art-com-box">
       <div class="b-art-com-box__info">
         <div class="b-art-com-box-info">
-          <span class="b-art-com-box-info__name">{{item.name}}</span>
-          <span class="b-art-com-box-info__time">{{item.time}}</span>
+          <span class="b-art-com-box-info__name">{{comment.commentData.name}}</span>
+          <span class="b-art-com-box-info__time">{{comment.commentData.time}}</span>
               <span class="b-art-com-box-info__rating">
                 <button>+</button>
-                <button>{{item.rating}}</button>
+                <button>{{comment.commentData.rating}}</button>
                 <button>-</button>
               </span>
-          <a class="b-art-com-box-info__reply" href="" ng-if="!comment.showForm" ng-click="comment.showForm = !comment.showForm">Ответить</a>
-          <a class="b-art-com-box-info__reply" href="" ng-if="comment.showForm" ng-click="comment.showForm = !comment.showForm">Скрыть</a>
+          <a class="b-art-com-box-info__reply" href="" ng-if="!comment.showForm" ng-click="comment.toggleForm()">Ответить</a>
+          <a class="b-art-com-box-info__reply" href="" ng-if="comment.showForm" ng-click="comment.toggleForm()">Скрыть</a>
         </div>
       </div>
-      <div class="b-art-com-box__text">{{item.text}}</div>
+      <div class="b-art-com-box__text">{{comment.commentData.text}}</div>
     </div>
     <form class="b-article-comment-add" ng-if="comment.showForm">
       <h4>Добавить комментарий</h4>
