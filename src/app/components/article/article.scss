@@ -8,7 +8,8 @@
 
 // Опубликованные коментарии
 .b-art-comments-list{
-
+  margin: 0;
+  padding: 0;
 }
 
 .b-art-comment-body{
@@ -23,20 +24,20 @@
 .b-art-comment-item{
   list-style: none;
 }
-
+reply.b-art-replay{
+  display: block;
+  margin-left: 100px;
+}
+.b-art-comments-list .b-art-replay .b-art-replay .b-art-replay{
+  margin-left: 0;;
+}
 .b-art-com-box{
   margin-left: 140px;
+  min-height: 105px;
 }
 .b-art-reply-comments{
   padding: 0;
   margin: 0;
-}
-.b-art-comments-list .b-art-reply-comments{
-  margin-left: 100px;;
-}
-
-.b-art-comments-list .b-art-reply-comments .b-art-reply-comments .b-art-reply-comments{
-  margin-left: 0;;
 }
 
 .b-article-comment-add{

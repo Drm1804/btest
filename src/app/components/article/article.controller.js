@@ -8,7 +8,7 @@
 
   function ArticleController($scope, $article, $sce){
     var vm = this;
-    $scope.comments = [];
+    vm.comments = [];
     vm.sce = $sce;
 
     vm.getComments = getComments;
@@ -19,11 +19,9 @@
     function getComments(){
       $article.getComments()
         .then(function(resp){
-          $scope.comments = resp;
-          // console.log(vm.comments);
+          vm.comments = resp;
         })
     }
-
 
     function run(){
       vm.getComments();
