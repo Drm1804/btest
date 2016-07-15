@@ -18,8 +18,62 @@
 
     _this.changeRating = changeRating;
     _this.getComments = getComments;
+    _this.addComment = addComment;
     _this.run = run;
     _this.run();
+
+    /**
+     *  Открытый метод addComment
+     *
+     *  Аргументы:
+     *    father - id(string), родительского комментария
+     *    commentData - данные коментария
+     *      - Имя пользователя
+     *      - email пользователя
+     *      - Сообщение Markdown
+     *
+     *
+     *    Возвращает true
+     *
+     *
+     *
+     */
+
+    function addComment(father, commentData) {
+      var comment;
+
+      if(father){
+        var arrFatherId = commentFactory.idToArray(father);
+        var path = _this.comments;
+        for (var i = 0; i < arrFatherId.length; i++) {
+          path = path.comments[arrFatherId[i]];
+
+        }
+        comment = path;
+      } else {
+        comment = _this.comments
+      }
+
+      var newId = getNewId();
+
+      if(comment.hasOwnProperty('comments')){
+        comment.comments[newId] = commentData;
+      } else {
+        comment.comments = {};
+        comment.comments[newId] = commentData;
+      }
+
+
+      $article.setComments(_this.comments)
+        .then(function(){
+          // Делаем что-то  при успешной загрузке
+        }, function(){
+          // если данные не изменились, пишем пользователю, что произошла ошщибка
+          console.error("Houston, We've Got a Problem ");
+        });
+
+      return true;
+    }
 
 
     /**
@@ -39,11 +93,11 @@
     function changeRating(id, type) {
       var arrId = commentFactory.idToArray(id);
       var path = _this.comments;
-      var comment;
       for (var i = 0; i < arrId.length; i++) {
         path = path.comments[arrId[i]];
-        comment = path;
+
       }
+      var comment = path;
       var intRating = parseInt(comment.rating);
       switch (type) {
         case 'plus':
@@ -57,15 +111,28 @@
       $rootScope.$emit('comment:reload');
 
 
-      $article.setComments()
+      $article.setComments(_this.comments)
         .then(function(){
           // Делаем что-то  при успешной загрузке
         }, function(){
           // если данные не изменились, пишем пользователю, что произошла ошщибка
           console.error("Houston, We've Got a Problem ");
-        })
+        });
 
 
+    }
+
+    /**
+     *  Приватный метод changeRating
+     *
+     *  Метод генерирует id комментария из 4 буквоцифр
+     *
+     *  Возвращает сгенерированный id
+     *
+     */
+
+    function getNewId () {
+      return Math.random().toString(36).slice(2, 2 + Math.max(1, Math.min(4, 10)));
     }
 
     function getComments() {

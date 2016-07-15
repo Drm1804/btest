@@ -50,17 +50,34 @@ reply.b-art-replay{
 }
 
 .b-article-comment-add{
-  margin-top: 30px;
+  margin: 30px 0 20px 0;
   border: 1px solid #888;
   vertical-align: top;
+  padding: 20px;
 }
+
 .b-art-add-label{
   min-width: 140px;
   display: inline-block;
+  vertical-align: top;
+  padding-top: 10px;
+}
+.b-art-add-input{
+  display: inline-block;
+  vertical-align: middle;
+  padding: 3px 10px;
+  margin: 10px 0;
+  border-radius: 5px;
+  width: 250px;
+  border: 1px solid #888;
+}
+.b-art-add-label--textarea{
+  vertical-align: top;
 }
 
 .b-art-add-textarea{
   resize: none;
+  vertical-align: top;
 }
 
 .b-art-com-box__info{
@@ -106,10 +123,6 @@ reply.b-art-replay{
 
 
 
-// Добавление коментариев
-.b-article-comment-add{
-  padding: 20px;
-}
 
 
 

@@ -56,24 +56,30 @@
 
   </div>
 
+
+
   <div class="b-article__comments">
     <h3>Коментарии:</h3>
 
     <ul class="b-art-comments-list">
       <comment comments="ctrl.data.comments"></comment>
     </ul>
-    <form class="b-article-comment-add">
+
+    <a href="" ng-if="!ctrl.showForm" ng-click="ctrl.toggleForm()">Комментировать</a>
+    <a href="" ng-if="ctrl.showForm" ng-click="ctrl.toggleForm()">Скрыть форму</a>
+
+    <form class="b-article-comment-add" ng-if="ctrl.showForm">
       <h4>Добавить комментарий</h4>
       <label class="b-art-add-label" for="b-art-add-name">Имя:</label>
-      <input id="b-art-add-name" class="b-art-add-name" type="text" required>
+      <input id="b-art-add-name" class="b-art-add-input" ng-model="ctrl.addForm.name" type="text" required>
       <br>
       <label class="b-art-add-label" for="b-art-add-email">E-mail:</label>
-      <input id="b-art-add-email" class="b-art-add-email" type="email" required>
+      <input id="b-art-add-email" class="b-art-add-input" ng-model="ctrl.addForm.email"  type="email" required>
       <br>
-      <label class="b-art-add-label" for="b-art-add-textarea">Текст комментария:</label>
-      <textarea id="b-art-add-textarea" class="b-art-add-textarea" cols="30" rows="10" required></textarea>
+      <label class="b-art-add-label b-art-add-label--textarea" for="b-art-add-textarea">Текст комментария:</label>
+      <textarea id="b-art-add-textarea" class="b-art-add-input b-art-add-textarea" ng-model="ctrl.addForm.text" cols="30" rows="10" required></textarea>
       <br>
-      <input type="submit">
+      <input type="submit" ng-disabled="addComment.$invalid" ng-click="ctrl.sendComment()">
     </form>
 
   </div>

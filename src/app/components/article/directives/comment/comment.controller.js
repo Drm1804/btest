@@ -9,12 +9,24 @@
     var vm = this;
     vm.showForm = false;
     vm.commentData = null;
+    vm.addForm = {};
 
+    vm.sendComment = sendComment;
     vm.toggleForm = toggleForm;
     vm.changeRating = changeRating;
     vm.run = run;
     vm.run();
 
+    function sendComment() {
+      vm.addForm.rating = 0;
+      vm.addForm.avatar = "http://placehold.it/140x100";
+      var result = articleService.addComment(vm.commentData.id, vm.addForm);
+
+      if(result){
+        // Создаем ивент сворачивания всех форм
+        $rootScope.$emit('comment:closeForm', {id: null});
+      }
+    }
 
     function toggleForm() {
       if (vm.showForm) {
