@@ -16,6 +16,15 @@
 
 }
 
+.b-art-comment-body--hide{
+  opacity: 0.2;
+  transition-duration: .3s;
+}
+
+.b-art-comment-body--hide:hover{
+  opacity: 1;
+}
+
 .b-art-com-avatar{
   float: left;
   width: 140px;

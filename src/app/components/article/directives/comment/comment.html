@@ -1,5 +1,6 @@
 <li class="b-art-comment-item" ng-repeat="item in comments track by $index">
-  <div class="b-art-comment-body" ng-controller="CommentController as comment">
+  <div class="b-art-comment-body" ng-controller="CommentController as comment"
+       ng-class="comment.commentData.rating <= -10 ? 'b-art-comment-body--hide' : null">
     <div class="b-art-com-avatar">
       <img ng-src="{{comment.commentData.avatar}}" alt="">
     </div>
