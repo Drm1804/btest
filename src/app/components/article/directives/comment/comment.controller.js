@@ -4,8 +4,8 @@
   angular.module('btest')
     .controller('CommentController', CommentController);
 
-  CommentController.$inject = ['$scope', '$rootScope', 'articleService'];
-  function CommentController($scope, $rootScope, articleService) {
+  CommentController.$inject = ['$scope', '$rootScope', 'articleService', 'parserService'];
+  function CommentController($scope, $rootScope, articleService, parserService) {
     var vm = this;
     vm.showForm = false;
     vm.commentData = null;
@@ -20,6 +20,9 @@
     function sendComment() {
       vm.addForm.rating = 0;
       vm.addForm.avatar = "http://placehold.it/140x100";
+
+      console.log(vm.addForm)
+      parserService.parse(vm.addForm.text)
       var result = articleService.addComment(vm.commentData.id, vm.addForm);
 
       if(result){
