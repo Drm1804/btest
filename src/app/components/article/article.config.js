@@ -13,7 +13,5 @@
         url: '/article',
         templateUrl: 'app/components/article/article.html'
       });
-
   }
-
 })();

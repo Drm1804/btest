@@ -2,14 +2,14 @@
 
 
 (function () {
-    'use strict';
+  'use strict';
 
   angular.module('btest')
     .controller('ArticleController', ArticleController);
 
-  ArticleController.$inject = ['$scope', '$article', '$sce', '$rootScope', 'commentFactory', 'articleService'];
+  ArticleController.$inject = ['$sce', '$rootScope', 'articleService', 'parserService'];
 
-  function ArticleController($scope, $article, $sce, $rootScope, commentFactory, articleService){
+  function ArticleController( $sce, $rootScope, articleService, parserService) {
     var vm = this;
     vm.data = [];
     vm.showForm = false;
@@ -23,8 +23,19 @@
     vm.run();
 
 
+    /*
+     * Публичный метод toggleForm
+     *
+     * Метод, скрывающий и открывающий форму добавления комментария
+     *
+     * Действия:
+     *   - скрывает показанный комментарий
+     *   - показывает комментарий
+     *   - созадет ивент закрытия всех открытых форм добавления комментариев
+     *
+     * */
 
-    function toggleForm(){
+    function toggleForm() {
       if (vm.showForm) {
         vm.showForm = false;
       } else {
@@ -36,29 +47,66 @@
       }
     }
 
+    /*
+     * Публичный метод sendComment
+     *
+     * Метод, который отправляет данные о новом коментарии в сервис articleService
+     *
+     * Действия:
+     *   - добавляет рейтинг равный нулю (исключительно для теста)
+     *   - добавляет аватар (исключительно для теста)
+     *   - преобразовывает markdown в html
+     *   - отправляет данные о новом коментарии в сервис articleService
+     *   - если от articleService вернулось true, создает ивент закрытия всех форм добавления комментариев
+     *
+     * */
 
     function sendComment() {
       vm.addForm.rating = 0;
       vm.addForm.avatar = "http://placehold.it/140x100";
+
+      vm.addForm.parsedText = parserService.parseMD(vm.addForm.text);
       var result = articleService.addComment(null, vm.addForm);
 
-      if(result){
+      if (result) {
         // Создаем ивент сворачивания всех форм
         $rootScope.$emit('comment:closeForm', {id: null});
       }
     }
 
-    function getComments(){
+    /*
+     * Публичный метод getComments
+     *
+     * Метод, забирающий у сервиса articleService данные с комментариями
+     *
+     * Действия:
+     *  получает данные у сервиса articleService
+     *
+     */
+    function getComments() {
       vm.data = articleService.comments;
     }
 
-    function run(){
+    /*
+     * Публичный метод run
+     *
+     * Метод, который запускается после загрузки контроллера
+     *
+     * Действия:
+     *   - запускает внутренний метод getComments()
+     *   - запускает подпись на событие перезагрузки данных
+     *   - запускается подписку на ивент закрытия форм добавления комментариев
+     *
+     * */
+
+    function run() {
       vm.getComments();
 
       // Подписываемся на событие перезагрузки данных
-      $rootScope.$on('comment:reload', function(){
+      $rootScope.$on('comment:reload', function () {
         vm.getComments()
       });
+
       // Подписываемся на ивент, в нем смотрим id родительского комментария
       // если он совпадает с текущим, то ничешего не делаем
       $rootScope.$on('comment:closeForm', function (event, data) {

@@ -9,9 +9,9 @@
   angular.module('btest')
     .service('articleService', articleService);
 
-  articleService.$inject = ['$article', '$rootScope', 'commentFactory', 'parserService'];
+  articleService.$inject = ['$article', '$rootScope', 'parserService'];
 
-  function articleService($article, $rootScope, commentFactory, parserService) {
+  function articleService($article, $rootScope, parserService) {
     var _this = this;
 
     _this.comments = [];
@@ -23,9 +23,26 @@
     _this.run();
 
 
+    /**
+     *  Приватный метод idToArray
+     *
+     *  Аргументы:
+     *    data - string - строка со всеми родительскими id
+     *
+     *  Функция, разбивает строку на массив id
+     *
+     *
+     *    Возвращает полученный массив
+     *
+     */
+
+    function idToArray(data){
+      return data.split('.');
+    }
+
 
     /**
-     *  Приватный метод метод parseMDComment
+     *  Приватный метод parseMDComment
      *
      *  Аргументы:
      *    data - JSON - объект с данными
@@ -72,7 +89,7 @@
       var comment;
 
       if(father){
-        var arrFatherId = commentFactory.idToArray(father);
+        var arrFatherId = idToArray(father);
         var path = _this.comments;
         for (var i = 0; i < arrFatherId.length; i++) {
           path = path.comments[arrFatherId[i]];
@@ -93,7 +110,7 @@
       }
 
 
-      $article.setComments(_this.comments)
+      $article.setComment(_this.comments)
         .then(function(){
           // Делаем что-то  при успешной загрузке
         }, function(){
@@ -120,7 +137,7 @@
      */
 
     function changeRating(id, type) {
-      var arrId = commentFactory.idToArray(id);
+      var arrId = idToArray(id);
       var path = _this.comments;
       for (var i = 0; i < arrId.length; i++) {
         path = path.comments[arrId[i]];
@@ -140,7 +157,7 @@
       $rootScope.$emit('comment:reload');
 
 
-      $article.setComments(_this.comments)
+      $article.setComment(_this.comments)
         .then(function(){
           // Делаем что-то  при успешной загрузке
         }, function(){
@@ -168,7 +185,7 @@
       $article.getComments()
         .then(function (resp) {
           _this.comments = resp;
-          parseMDComment(_this.comments)
+          parseMDComment(_this.comments);
           $rootScope.$emit('comment:reload');
         })
     }

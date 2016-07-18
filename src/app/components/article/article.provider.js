@@ -14,6 +14,18 @@
     return {
       $get: function ($q, $server, $timeout) {
         return {
+
+          /*
+           * Публичный метод getComments
+           *
+           * Метод, обарщается к серверу, и забирает от туда данные с комментариями
+           *
+           * Действия:
+           *   - обарщается к серверу, и забирает от туда данные с комментариями
+           *
+           * Возвращает promise
+           * */
+
           getComments: function () {
             var dfd = $q.defer();
             $server.returnData()
@@ -24,7 +36,19 @@
               });
             return dfd.promise;
           },
-          setComments: function (){
+
+          /*
+           * Публичный метод setComment
+           *
+           * Метод, обаращается к серверу, и отправляет данные о новом комментарии
+           *
+           * Действия:
+           *   - обаращается к серверу, и отправляет данные о новом комментарии
+           *
+           * Возвращает promise
+           * */
+
+          setComment: function (){
             var dfd = $q.defer();
             $server.setData()
               .then(function (resp) {

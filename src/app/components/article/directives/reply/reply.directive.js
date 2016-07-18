@@ -6,23 +6,13 @@
 
   function reply(){
 
-    function link(scope, element, attrs){
-      scope.$watch(function() {
-        // console.log(scope.comments);
-      });
-      // console.log(element);
-      // console.log(attrs);
-    }
-
-
     return{
       restrict: "E",
       replace: false,
       scope: {
         comments: '='
       },
-      templateUrl: 'app/components/article/directives/reply/reply.html',
-      link: link
+      templateUrl: 'app/components/article/directives/reply/reply.html'
     };
 
   }
