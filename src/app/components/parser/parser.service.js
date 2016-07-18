@@ -23,50 +23,11 @@
 
     };
 
-    _this.parse = parse;
+    _this.parseMD = parseMD;
 
 
     /*
-     * Приватный метод separateOneLineText
-     * Метод проверяет простой текст на наличие в нем md-элементов
-     *
-     * Аргументы:
-     *   data - массив строк
-     *
-     *
-     *
-     * Возвращает объект c 2-мя свойтвами:
-     *  simple - массив однострочных элементов
-     *  complex - массив массивов многострочных элементов
-     * */
-
-    function separateOneLineText(data) {
-
-      var simpleArr = [];
-      var complexArr = [];
-
-      for (var item in data) {
-
-      }
-    }
-
-
-    /*
-     * Приватный метод partitionLine
-     *
-     * Аргументы:
-     *   data - строка с markdown текстом
-     *
-     *
-     * Возвращает массив с линиями
-     * */
-
-    function partitionLine(data) {
-      return data.split(_this.masks.newline);
-    }
-
-    /*
-     * Открытый метод parse
+     * Открытый метод parseMD
      *
      * Аргументы:
      *   data - строка с markdown текстом
@@ -75,11 +36,20 @@
      * Возвращает строку с html - тестом
      * */
 
-    function parse(data) {
-      var arrayData = partitionLine(data);
+    function parseMD(data) {
 
-      var complexArr = separateOneLineText(arrayData);
-      console.log(complexArr)
+      data = data.replace( _this.masks.h1, function(result){
+
+        result = result.replace('\#', '');
+        return '<h1>'+ result+ '</h1>'
+      });
+      
+      data = data.replace( _this.masks.italic, '<code>$1</code>');
+
+
+      console.log(data)
+
+      return data
 
 
     }

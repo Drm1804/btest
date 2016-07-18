@@ -21,8 +21,7 @@
       vm.addForm.rating = 0;
       vm.addForm.avatar = "http://placehold.it/140x100";
 
-      console.log(vm.addForm)
-      parserService.parse(vm.addForm.text)
+      parserService.parseMD(vm.addForm.text)
       var result = articleService.addComment(vm.commentData.id, vm.addForm);
 
       if(result){
