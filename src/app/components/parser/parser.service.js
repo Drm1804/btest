@@ -72,11 +72,11 @@
 
       data = data.replace( _this.masks.text, '<p>$&</p>');
 
-      data = data.replace( _this.masks.italic, '<code>$1</code>');
+      data = data.replace( _this.masks.italic, '<i> $1 </i>');
 
-      data = data.replace( _this.masks.bold, '<code>$1</code>');
+      data = data.replace( _this.masks.bold, '<b> $1 </b>');
 
-      data = data.replace( _this.masks.code, '<code>$1</code>');
+      data = data.replace( _this.masks.code, '<code> $1 </code>');
 
       return data
 
