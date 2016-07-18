@@ -21,6 +21,21 @@
       <div class="b-art-com-box__text" ng-bind-html="comment.trustedHtml(comment.commentData.parsedText)"></div>
     </div>
     <form name="addComment" class="b-article-comment-add" ng-if="comment.showForm">
+      <div class="b-article-comment-add__insr">
+        Форма поддерживаем Markdown:
+        <br>
+        <br>
+        # - Заголовок H1<br>
+        ## - Заголовок H2<br>
+        ### - Заголовок H3<br>
+        #### - Заголовок H4<br>
+        ##### - Заголовок H5<br>
+        ###### - Заголовок H6<br>
+        <br><br>
+        `text` - code<br>
+        *text* - italic<br>
+        **text** - bold<br>
+      </div>
       <h4>Ответить на комментарий {{comment.commentData.name}}</h4>
       <label class="b-art-add-label" for="b-art-add-name">Имя:</label>
       <input id="b-art-add-name" class="b-art-add-input" ng-model="comment.addForm.name" type="text" required>
@@ -32,6 +47,7 @@
       <textarea id="b-art-add-textarea" class="b-art-add-input b-art-add-textarea" ng-model="comment.addForm.text" cols="30" rows="10" required></textarea>
       <br>
       <input type="submit" ng-disabled="addComment.$invalid" ng-click="comment.sendComment()">
+
     </form>
   </div>
   <reply class="b-art-replay" ng-if="item.comments" comments="item.comments"></reply>

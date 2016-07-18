@@ -69,6 +69,21 @@
     <a href="" ng-if="ctrl.showForm" ng-click="ctrl.toggleForm()">Скрыть форму</a>
 
     <form class="b-article-comment-add" ng-if="ctrl.showForm">
+      <div class="b-article-comment-add__insr">
+        Форма поддерживаем Markdown:
+        <br>
+        <br>
+        # - Заголовок H1<br>
+        ## - Заголовок H2<br>
+        ### - Заголовок H3<br>
+        #### - Заголовок H4<br>
+        ##### - Заголовок H5<br>
+        ###### - Заголовок H6<br>
+        <br><br>
+        `text` - code<br>
+        *text* - italic<br>
+        **text** - bold<br>
+      </div>
       <h4>Добавить комментарий</h4>
       <label class="b-art-add-label" for="b-art-add-name">Имя:</label>
       <input id="b-art-add-name" class="b-art-add-input" ng-model="ctrl.addForm.name" type="text" required>
