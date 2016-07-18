@@ -10,55 +10,42 @@
         var _this = this;
         _this.data = '';
         _this.masks = {
-            newline: /\n+/g
+            newline: /\n+/g,
+            h1: /^#[а-яА-ЯёЁ0-1\w]+$/g,
+            h2: /^##[а-яА-ЯёЁ0-1\w]+$/g,
+            h3: /^###[а-яА-ЯёЁ0-1\w]+$/g,
+            h4: /^####[а-яА-ЯёЁ0-1\w]+$/g,
+            h5: /^#####[а-яА-ЯёЁ0-1\w]+$/g,
+            h6: /^######[а-яА-ЯёЁ0-1\w]+$/g
         };
 
         _this.parse = parse;
 
+
         /*
-         * Приватный метод simpleText
+         * Приватный метод separateOneLineText
          * Метод проверяет простой текст на наличие в нем md-элементов
          *
          * Аргументы:
-         *   data - строка с markdown текстом
+         *   data - массив строк
          *
          *
-         * Возвращает массив с линиями
+         *
+         * Возвращает объект c 2-мя свойтвами:
+         *  simple - массив однострочных элементов
+         *  complex - массив массивов многострочных элементов
          * */
 
-        function simpleText(){
+        function separateOneLineText(data){
 
+            var simpleArr = [];
+            var complexArr = [];
+
+            for(var item in data){
+
+            }
         }
 
-        /*
-         * Приватный метод oneLineElement
-         * Метод проверяет строку, которая начинается с md-символа
-         *
-         * Аргументы:
-         *   data - строка с markdown текстом
-         *
-         *
-         * Возвращает массив с линиями
-         * */
-
-        function oneLineElement(){
-
-        }
-
-        /*
-         * Приватный метод moreLineElement
-         * Метод проверяет строку, которая начинается с md-символа
-         *
-         * Аргументы:
-         *   data - строка с markdown текстом
-         *
-         *
-         * Возвращает массив с линиями
-         * */
-
-        function moreLineElement(){
-
-        }
 
         /*
          * Приватный метод partitionLine
@@ -86,7 +73,9 @@
 
         function parse(data){
             var arrayData = partitionLine(data);
-            console.log(arrayData)
+
+            var complexArr = separateOneLineText(arrayData);
+            console.log(complexArr)
 
 
         }
