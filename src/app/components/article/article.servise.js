@@ -9,9 +9,9 @@
   angular.module('btest')
     .service('articleService', articleService);
 
-  articleService.$inject = ['$article', '$rootScope', 'commentFactory'];
+  articleService.$inject = ['$article', '$rootScope', 'commentFactory', 'parserService'];
 
-  function articleService($article, $rootScope, commentFactory) {
+  function articleService($article, $rootScope, commentFactory, parserService) {
     var _this = this;
 
     _this.comments = [];
@@ -21,6 +21,37 @@
     _this.addComment = addComment;
     _this.run = run;
     _this.run();
+
+
+
+    /**
+     *  Приватный метод метод parseMDComment
+     *
+     *  Аргументы:
+     *    data - JSON - объект с данными
+     *
+     *  Рекурсивная функция, которая находит в переданном объекте свойство 'comments', проходит по нему циклом,
+     *  в каждом объекте берет текст из свойства 'text', после чего парсит его в html.
+     *  Далее ищет в этом объекте свойство 'comments', если оно имеется, то вызывает сама себя, и передает объект со
+     *  свойством 'comments'
+     *
+     *
+     *    Возвращает true
+     *
+     */
+
+    function parseMDComment(data){
+      var parsedComments = [];
+      for(var item in data.comments){
+        data.comments[item].parsedText = parserService.parseMD(data.comments[item].text)
+        if(data.comments[item].hasOwnProperty('comments')){
+          parseMDComment(data.comments[item])
+        }
+      }
+
+      return parsedComments
+
+    }
 
     /**
      *  Открытый метод addComment
@@ -34,8 +65,6 @@
      *
      *
      *    Возвращает true
-     *
-     *
      *
      */
 
@@ -139,6 +168,7 @@
       $article.getComments()
         .then(function (resp) {
           _this.comments = resp;
+          parseMDComment(_this.comments)
           $rootScope.$emit('comment:reload');
         })
     }

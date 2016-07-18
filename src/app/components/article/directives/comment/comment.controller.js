@@ -4,24 +4,30 @@
   angular.module('btest')
     .controller('CommentController', CommentController);
 
-  CommentController.$inject = ['$scope', '$rootScope', 'articleService', 'parserService'];
-  function CommentController($scope, $rootScope, articleService, parserService) {
+  CommentController.$inject = ['$scope', '$rootScope', 'articleService', 'parserService', '$sce'];
+  function CommentController($scope, $rootScope, articleService, parserService, $sce) {
     var vm = this;
     vm.showForm = false;
     vm.commentData = null;
     vm.addForm = {};
+    vm.sce = $sce;
 
     vm.sendComment = sendComment;
     vm.toggleForm = toggleForm;
     vm.changeRating = changeRating;
+    vm.trustedHtml = trustedHtml;
     vm.run = run;
     vm.run();
+
+    function trustedHtml(data){
+      return $sce.trustAsHtml(data)
+    }
 
     function sendComment() {
       vm.addForm.rating = 0;
       vm.addForm.avatar = "http://placehold.it/140x100";
 
-      parserService.parseMD(vm.addForm.text)
+      vm.addForm.parsedText = parserService.parseMD(vm.addForm.text);
       var result = articleService.addComment(vm.commentData.id, vm.addForm);
 
       if(result){

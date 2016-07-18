@@ -18,7 +18,7 @@
           <a class="b-art-com-box-info__reply" href="" ng-if="comment.showForm" ng-click="comment.toggleForm()">Скрыть</a>
         </div>
       </div>
-      <div class="b-art-com-box__text">{{comment.commentData.text}}</div>
+      <div class="b-art-com-box__text" ng-bind-html="comment.trustedHtml(comment.commentData.parsedText)"></div>
     </div>
     <form name="addComment" class="b-article-comment-add" ng-if="comment.showForm">
       <h4>Ответить на комментарий {{comment.commentData.name}}</h4>
